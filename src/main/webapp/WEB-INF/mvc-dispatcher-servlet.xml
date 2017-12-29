@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                           http://www.springframework.org/schema/vmc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+">
+    <context:component-scan base-package="com.primeid.controller" />
+    
+    <bean id="customFunctions" class="com.primeid.utils.CustomFunctions" />
+    
+    <bean id="accountService" class="com.primeid.service.AccountService" autowire="default" />
+    <bean id="ipService" class="com.primeid.service.IPService" autowire="default" />
+    <bean id="sessionTableService" class="com.primeid.service.SessionTableService" autowire="default" />
+    <bean id="auditService" class="com.primeid.service.AuditService" autowire="default" />
+    <bean id="customAuthenticationService" class="com.primeid.service.CustomAuthenticationService" autowire="default" />
+    <bean id="caseService" class="com.primeid.service.CaseService" autowire="default" />
+    <bean id="jurisdictionService" class="com.primeid.service.JurisdictionService" autowire="default" />
+    <bean id="accountJurisdictionService" class="com.primeid.service.AccountJurisdictionService" autowire="default" />
+    <bean id="artifactService" class="com.primeid.service.ArtifactService" autowire="default" />
+    <bean id="artifactTypeService" class="com.primeid.service.ArtifactTypeService" autowire="default" />
+    <bean id="ocrResultService" class="com.primeid.service.OcrResultService" autowire="default" />
+    <bean id="ocrService" class="com.primeid.service.OCRService" autowire="default" />
+    <bean id="uploadService" class="com.primeid.service.UploadService" autowire="default" />
+    <bean id="facialRecResultService" class="com.primeid.service.FacialRecResultService" autowire="default" />
+    <bean id="imageForgeryService" class="com.primeid.service.ImageForgeryService" autowire="default" />
+    <bean id="facialRecArtifactService" class="com.primeid.service.FacialRecArtifactService" autowire="default" />
+    <bean id="facialThresholdService" class="com.primeid.service.FacialThresholdService" autowire="default" />
+    <bean id="tamperThreshService" class="com.primeid.service.TamperThresholdService" autowire="default" />
+    <bean id="tamperResultService" class="com.primeid.service.TamperResultService" autowire="default" />
+    <bean id="documentTypeService" class="com.primeid.service.DocumentTypeService" autowire="default" />
+    <bean id="scoreService" class="com.primeid.service.ScoreService" autowire="default" />
+    <bean id="nameThresholdService" class="com.primeid.service.NameThresholdService" autowire="default" />
+    <bean id="nameMatchResultService" class="com.primeid.service.NameMatchResultService" autowire="default" />
+    <bean id="hundredPointResultService" class="com.primeid.service.HundredPointResultService" autowire="default" />
+    <bean id="validateCaseDataResultService" class="com.primeid.service.ValidateCaseDataResultService" autowire="default" />
+    <bean id="facialRecCaseService" class="com.primeid.service.FacialRecCaseService" autowire="default" />
+    
+    <bean id="accountDao" class="com.primeid.daoImpl.AccountDaoImpl" autowire="default" />
+    <bean id="ipDao" class="com.primeid.daoImpl.IPDaoImpl" autowire="default" />
+    <bean id="sessionTableDao" class="com.primeid.daoImpl.SessionTableDaoImpl" autowire="default" />
+    <bean id="auditDao" class="com.primeid.daoImpl.AuditDaoImpl" autowire="default" />
+    <bean id="caseDao" class="com.primeid.daoImpl.CaseDaoImpl" autowire="default" />
+    <bean id="jurisdictionDao" class="com.primeid.daoImpl.JurisdictionDaoImpl" autowire="default" />
+    <bean id="accountJurisdictionDao" class="com.primeid.daoImpl.AccountJurisdictionDaoImpl" autowire="default" />
+    <bean id="artifactDao" class="com.primeid.daoImpl.ArtifactDaoImpl" autowire="default" />
+    <bean id="artifactTypeDao" class="com.primeid.daoImpl.ArtifactTypeDaoImpl" autowire="default" />
+    <bean id="ocrResultDao" class="com.primeid.daoImpl.OcrResultDaoImpl" autowire="default" />
+    <bean id="facialRecResultDao" class="com.primeid.daoImpl.FacialRecResultDaoImpl" autowire="default" />
+    <bean id="facialRecArtifactDao" class="com.primeid.daoImpl.FacialRecArtifactDaoImpl" autowire="default" />
+    <bean id="facialThresholdDao" class="com.primeid.daoImpl.FacialThresholdDaoImpl" autowire="default" />
+    <bean id="tamperThreshDao" class="com.primeid.daoImpl.TamperThresholdDaoImpl" autowire="default" />
+    <bean id="tamperResultDao" class="com.primeid.daoImpl.TamperResultDaoImpl" autowire="default" />
+    <bean id="documentTypeDao" class="com.primeid.daoImpl.DocumentTypeDaoImpl" autowire="default" />
+    <bean id="scoreDao" class="com.primeid.daoImpl.ScoreDaoImpl" autowire="default" />
+    <bean id="nameThresholdDao" class="com.primeid.daoImpl.NameThresholdDaoImpl" autowire="default" />
+    <bean id="nameMatchResultDao" class="com.primeid.daoImpl.NameMatchResultDaoImpl" autowire="default" />
+    <bean id="hundredPointResultDao" class="com.primeid.daoImpl.HundredPointResultDaoImpl" autowire="default" />
+    <bean id="validateCaseDataResultDao" class="com.primeid.daoImpl.ValidateCaseDataResultDaoImpl" autowire="default" />
+    <bean id="facialRecCaseDaoImpl" class="com.primeid.daoImpl.FacialRecCaseDaoImpl" autowire="default" />
+    
+    <bean id = "jwtTokenUtil" class = "com.primeid.config.JwtTokenUtil" />
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost/primeid" />
+        <property name="username" value="root" />
+        <property name="password" value="" />
+<!--        <property name="url" value="jdbc:mysql://52.63.170.128/primeid" />
+        <property name="username" value="novigi"/>
+        <property name="password" value="2017m24fun"/>-->
+    </bean>
+    
+    <!-- Hibernate Session Factory -->
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" autowire="byType">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.primeid.model" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+                <prop key="hibernate.show_sql">false</prop>  
+                <prop key="hibernate.hbm2ddl.auto">none</prop>    
+                
+                <!-- <prop key="hibernate.hbm2ddl.auto">none</prop> 
+               <prop key="hibernate.hbm2ddl.auto">create-drop</prop>   
+                -->
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.primeid.model.Account</value>
+                <value>com.primeid.model.IP</value>
+                <value>com.primeid.model.SessionTable</value>
+                <value>com.primeid.model.Audit</value>
+                <value>com.primeid.model.Case</value>
+                <value>com.primeid.model.Jurisdiction</value>
+                <value>com.primeid.model.AccountJurisdiction</value>
+                <value>com.primeid.model.Artifact</value>
+                <value>com.primeid.model.ArtifactType</value>
+                <value>com.primeid.model.OcrResult</value>
+                <value>com.primeid.model.FacialRecResult</value>
+                <value>com.primeid.model.FacialRecArtifact</value>
+                <value>com.primeid.model.FacialThreshold</value>
+                <value>com.primeid.model.TamperThreshold</value>
+                <value>com.primeid.model.TamperResult</value>
+                <value>com.primeid.model.DocumentType</value>
+                <value>com.primeid.model.Score</value>
+                <value>com.primeid.model.NameThreshold</value>
+                <value>com.primeid.model.NameMatchResult</value>
+                <value>com.primeid.model.HundredPointResult</value>
+                <value>com.primeid.model.ValidateCaseDataResult</value>
+                <value>com.primeid.model.FacialRecCase</value>
+            </list>
+            
+        </property>
+    </bean>
+    
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    
+    <bean id = "transactionManager" class = "org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name = "sessionFactory" ref = "sessionFactory" />
+    </bean>    
+    <bean id="multipartResolver"
+      class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+    
+</beans>
